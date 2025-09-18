@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  postgres_db:
+    image: postgres:16
+    container_name: postgres_firmas_container
+    environment:
+      POSTGRES_USER: firmas_user
+      POSTGRES_PASSWORD: firmas_pass
+      POSTGRES_DB: firmas_db
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5434:5432"
+    restart: always
+
+volumes:
+  pgdata:
