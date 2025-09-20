@@ -14,7 +14,14 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5434:5432"
+    networks:
+      - firma_net  
     restart: always
 
 volumes:
   pgdata:
+
+
+networks:
+  firma_net:
+    external: true
