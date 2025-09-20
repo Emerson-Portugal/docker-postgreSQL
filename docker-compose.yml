@@ -13,7 +13,7 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5434:5432"
+      - "5432:5432"
     networks:
       - firma_net  
     restart: always
